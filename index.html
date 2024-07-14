@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Điều kỳ diệu ở phòng giam số 1307</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside>
+            <div class="toggle">
+                <div class="logo">
+                    <img src="images/logo-meo.png">
+                    <h2>13<span class="danger">07</span></h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">
+                        close
+                    </span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">
+                        dashboard
+                    </span>
+                    <h3>Ghi chú</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        local_atm
+                    </span>
+                    <h3>Cái giá phải trả</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        logout
+                    </span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- End of Sidebar Section -->
+
+        <!-- Main Content -->
+        <main>
+            <!-- <h1>1307</h1> -->
+            <!-- <h3>Alpha test</h3> -->
+            <div class="analyse">
+                <!-- Dọn dẹp -->
+                <div class="cleanup">
+                    <div>
+                        <h1>Lịch trực vệ sinh</h1>
+                    </div>
+                    <table>
+                        <tbody></tbody>
+                    </table>
+                </div>
+
+                <!-- GT -->
+                <div class="carpet">
+                    <h1>Giặt thảm</h1>
+                    <h2>Chưa biết</h2>
+                </div>
+                <!-- Note -->
+                <div class="searches">
+                    <div class="status">
+                        <h1>Ghi chú</h1>
+                        <button>
+                            <span class="material-icons-sharp">
+                                save
+                            </span>
+                        </button>
+                    </div>
+                    <textarea name="note" id="note"></textarea>
+                </div>
+            </div>
+            <!-- End of Analyses -->
+
+            <!-- Recent Orders Table -->
+            <div class="recent-orders">
+                <h2>Mua đồ cho phòng</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Tên</th>
+                            <th>Sản phẩm</th>
+                            <th>Tiền</th>
+                            <th>Ngày mua</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <a href="#">Show All</a>
+            </div>
+            <!-- End of Recent Orders -->
+
+        </main>
+        <!-- End of Main Content -->
+
+        <!-- Right Section -->
+        <div class="right-section">
+            <div class="nav">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">
+                        menu
+                    </span>
+                </button>
+                <div class="dark-mode">
+                    <span class="material-icons-sharp active">
+                        light_mode
+                    </span>
+                    <span class="material-icons-sharp">
+                        dark_mode
+                    </span>
+                </div>
+
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey, <b>Reza</b></p>
+                        <small class="text-muted">Admin</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="images/logo-meo.png">
+                    </div>
+                </div>
+
+            </div>
+            <!-- End of Nav -->
+
+            <!-- <div class="reminders">
+                <div class="header">
+                    <h2>Reminders</h2>
+                    <span class="material-icons-sharp">
+                        notifications_none
+                    </span>
+                </div>
+
+                <div class="notification">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            volume_up
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Workshop</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification deactive">
+                    <div class="icon">
+                        <span class="material-icons-sharp">
+                            edit
+                        </span>
+                    </div>
+                    <div class="content">
+                        <div class="info">
+                            <h3>Workshop</h3>
+                            <small class="text_muted">
+                                08:00 AM - 12:00 PM
+                            </small>
+                        </div>
+                        <span class="material-icons-sharp">
+                            more_vert
+                        </span>
+                    </div>
+                </div>
+
+                <div class="notification add-reminder">
+                    <div>
+                        <span class="material-icons-sharp">
+                            add
+                        </span>
+                        <h3>Add Reminder</h3>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
