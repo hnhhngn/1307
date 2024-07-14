@@ -4,8 +4,47 @@ const closeBtn = document.getElementById("close-btn");
 const noteArea = document.getElementById("note");
 const darkMode = document.querySelector(".dark-mode");
 
-noteArea.value = Notes;
+/*-----Init-----*/
+// Show clean up calendar
+const today = new Date();
+const weekday = today.getDay() - 1 > 0 ? today.getDay() : 6;
+getCleanupCalendar().then(function (result) {
+  result.forEach((item, index) => {
+    const tr = document.createElement("tr");
+    const trContent = `
+      <th class="${index === weekday ? "active" : ""}">${item.weekday}</th>
+      <td class="${!item.users.status ? "inactive" : ""}">
+        ${item.users.name}
+      </td>`;
+    tr.innerHTML = trContent;
+    document.querySelector(".cleanup table tbody").appendChild(tr);
+  });
+});
 
+// Show notes
+getNotes().then(function (result) {
+  noteArea.value = result[0].contents;
+});
+
+// Show payments
+getPayment().then(function (result) {
+  result.forEach((item) => {
+    const button =
+      '<button><span class="material-icons-sharp">edit</span></button>';
+    const tr = document.createElement("tr");
+    const trContent = `
+        <td>${item.users.name}</td>
+        <td>${item.product_name}</td>
+        <td>${item.price}</td>
+        <td>${item.buy_date}</td>
+        <td>${button}</td>
+    `;
+    tr.innerHTML = trContent;
+    document.querySelector("#payment tbody").appendChild(tr);
+  });
+});
+
+// Event
 menuBtn.addEventListener("click", () => {
   sideMenu.style.display = "block";
 });
@@ -18,34 +57,4 @@ darkMode.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode-variables");
   darkMode.querySelector("span:nth-child(1)").classList.toggle("active");
   darkMode.querySelector("span:nth-child(2)").classList.toggle("active");
-});
-
-const today = new Date();
-const weekday = today.getDay() - 1 > 0 ? today.getDay() : 6;
-Cleanup.forEach((item, index) => {
-  const tr = document.createElement("tr");
-  const trContent = `
-    <th class="${index === weekday ? "active" : ""}">${item.weekday}</th>
-    <td>${item.name}</td>`;
-  tr.innerHTML = trContent;
-  document.querySelector(".cleanup table tbody").appendChild(tr);
-});
-
-Orders.forEach((order) => {
-  const tr = document.createElement("tr");
-  const trContent = `
-        <td>${order.productName}</td>
-        <td>${order.productNumber}</td>
-        <td>${order.paymentStatus}</td>
-        <td class="${
-          order.status === "Declined"
-            ? "danger"
-            : order.status === "Pending"
-            ? "warning"
-            : "primary"
-        }">${order.status}</td>
-        <td class="primary">Details</td>
-    `;
-  tr.innerHTML = trContent;
-  document.querySelector(".recent-orders table tbody").appendChild(tr);
 });

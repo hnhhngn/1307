@@ -93,7 +93,7 @@
             <!-- Recent Orders Table -->
             <div class="recent-orders">
                 <h2>Mua đồ cho phòng</h2>
-                <table>
+                <table id="payment">
                     <thead>
                         <tr>
                             <th>Tên</th>
@@ -103,7 +103,21 @@
                             <th></th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <tbody>
+                        <tr>
+                            <td>Tui</td>
+                            <td><input type="text" id="pro-name"></td>
+                            <td><input type="number" id="pro-price"></td>
+                            <td><input type="date" id="pro-date"></td>
+                            <td>
+                                <button>
+                                    <span class="material-icons-sharp">
+                                        add
+                                    </span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
                 <a href="#">Show All</a>
             </div>
@@ -199,7 +213,8 @@
             </div> -->
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="config.js"></script>
     <script src="data.js"></script>
     <script src="index.js"></script>
 </body>

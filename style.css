@@ -56,6 +56,10 @@ body {
     background-color: var(--color-background);
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 a {
     color: var(--color-dark);
 }
@@ -240,6 +244,12 @@ main .analyse>div {
     transition: all 0.3s ease;
 }
 
+@media screen and (max-device-width: 640px) {
+    main .analyse>div {
+        cursor: none;
+    }
+}
+
 main .analyse>div:hover {
     box-shadow: none;
 }
@@ -274,7 +284,7 @@ main .analyse .searches button {
     color: var(--color-dark);
 }
 
-main .analyse .searches button:hover {
+main .analyse .searches button:active {
     color: var(--color-success)
 }
 
@@ -306,6 +316,10 @@ main .analyse .cleanup table .active {
     color: var(--color-success);
 }
 
+main .analyse .cleanup table .inactive {
+    color: var(--color-danger);
+}
+
 main .analyse .cleanup table td {
     font-weight: 600;
     font-size: 1.6rem;
@@ -328,6 +342,22 @@ main .recent-orders table {
     box-shadow: var(--box-shadow);
     border-radius: var(--card-border-radius);
     transition: all 0.3s ease;
+}
+
+main .recent-orders table tbody td input {
+    width: 100%;
+    padding: 0 1rem 0 1rem;
+    background-color: var(--color-background);
+    color: var(--color-dark);
+    border-radius: 15px;
+}
+
+main .recent-orders table tbody td button {
+    border-radius: 10px;
+}
+
+main .recent-orders table tbody td button span {
+    font-size: 0.88rem;
 }
 
 main .recent-orders table:hover {
@@ -522,15 +552,13 @@ main .recent-orders a {
         width: 83vw;
     }
 
-    main .recent-orders table thead tr th:last-child,
-    main .recent-orders table thead tr th:nth-child(4) {
+    /* main .recent-orders table thead tr th:first-child {
         display: none;
     }
 
-    main .recent-orders table tbody tr td:last-child,
-    main .recent-orders table tbody tr td:nth-child(4) {
+    main .recent-orders table tbody tr td:first-child {
         display: none;
-    }
+    } */
 
 }
 

@@ -1,53 +1,32 @@
-const Orders = [
-  {
-    productName: "Ngu",
-    productNumber: "Nước tương",
-    paymentStatus: "50000",
-    status: "01/07/2024",
-  },
-  {
-    productName: "Ngu",
-    productNumber: "Nước mắm",
-    paymentStatus: "70000",
-    status: "01/07/2024",
-  },
-  {
-    productName: "Ngu",
-    productNumber: "Đậu xanh rau má",
-    paymentStatus: "100000",
-    status: "01/07/2024",
-  },
-];
+async function getCleanupCalendar() {
+  let { data, error } = await SUPABASE.from("cleans").select(
+    "weekday, users!inner(name, status)"
+  );
+  if (error === null) {
+    return data;
+  }
+  console.log("error", error);
+  return null;
+}
 
-const Cleanup = [
-  {
-    weekday: "Thứ 2",
-    name: "Ngu",
-  },
-  {
-    weekday: "Thứ 3",
-    name: "Thảo",
-  },
-  {
-    weekday: "Thứ 4",
-    name: "Nga",
-  },
-  {
-    weekday: "Thứ 5",
-    name: "Dương",
-  },
-  {
-    weekday: "Thứ 6",
-    name: "Trinh",
-  },
-  {
-    weekday: "Thứ 7",
-    name: "Nhi",
-  },
-  {
-    weekday: "Chủ nhật",
-    name: "Nguyên",
-  },
-];
+async function getNotes() {
+  let { data, error } = await SUPABASE.from("notes")
+    .select("contents")
+    .eq("id", "1");
+  if (error === null) {
+    return data;
+  }
+  console.log("error", error);
+  return null;
+}
 
-const Notes = "Meo meo meo meo meo meo meo meo meo meo meo meo meo";
+async function getPayment() {
+  let { data, error } = await SUPABASE.from("payment").select(
+    "*, users!inner(name, status)"
+  );
+  if (error === null) {
+    return data;
+  }
+  console.log("error", error);
+  return null;
+}
