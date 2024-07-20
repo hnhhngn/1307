@@ -1,13 +1,14 @@
 const sideMenu = document.querySelector("aside");
 const menuBtn = document.getElementById("menu-btn");
 const closeBtn = document.getElementById("close-btn");
+const saveBtn = document.getElementById("save-btn");
 const noteArea = document.getElementById("note");
 const darkMode = document.querySelector(".dark-mode");
 
 /*-----Init-----*/
 // Show clean up calendar
 const today = new Date();
-const weekday = today.getDay() - 1 > 0 ? today.getDay() : 6;
+const weekday = today.getDay() - 1 >= 0 ? today.getDay() - 1 : 6;
 getCleanupCalendar().then(function (result) {
   result.forEach((item, index) => {
     const tr = document.createElement("tr");
@@ -57,4 +58,14 @@ darkMode.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode-variables");
   darkMode.querySelector("span:nth-child(1)").classList.toggle("active");
   darkMode.querySelector("span:nth-child(2)").classList.toggle("active");
+});
+
+saveBtn.addEventListener("click", () => {
+  updateNotes(noteArea.value).then(function (result) {
+    if (result) {
+      alert("Ok bro");
+    } else {
+      alert("Có gì đó sai sai");
+    }
+  });
 });

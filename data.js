@@ -30,3 +30,16 @@ async function getPayment() {
   console.log("error", error);
   return null;
 }
+
+async function updateNotes(noteContent) {
+  let { data, error } = await SUPABASE.from("notes")
+    .update({ contents: noteContent })
+    .eq("id", 1)
+    .select();
+  if (error === null) {
+    console.log("data", data);
+    return true;
+  }
+  console.log("error", error);
+  return false;
+}
